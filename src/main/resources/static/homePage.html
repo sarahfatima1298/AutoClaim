@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Details</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/offcanvas.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/d3-css.css" rel="stylesheet">
+    <link href="css/angular-date-picker.css" rel="stylesheet">
+   <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></"></script>
+    <script src="js/script.js"></"></script>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+   <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body ng-app="demo" onload="loadData()">
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+      
+        <div class="masthead">
+        
+        <div class="row">
+        <div class="col-xs-6 col-md-6  logo-head"> 
+		<!--<a href="#"><img src="images/logo.png"/></a>-->
+        </div>
+        <div class="col-xs-6 col-md-6"> 
+        <div id="header-nav-right">
+        	<div class="user-account-btn">
+				<a href="#"><img src="images/user.jpg" width="50" height="47"><span>User</span></a>
+            </div>
+            <div class="button"><img src="images/header_search_icon.png" width="14" height="14"></div>
+             <div class="button"><img src="images/settig_icon.png" width="14" height="14"></div>
+             <a href="login.html" title="logout"><div class="button"><img src="images/logout_icon.png" width="14" height="14"></div></a>
+        </div>
+        	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        </div>
+        
+        
+         <div id="navbar" class="collapse navbar-collapse row">
+          <ul class="nav navbar-nav">
+            <li><a ><span><img src="images/nav_dashboard_icon.png" width="19" height="18"></span>DASHBOARD</a></li>
+            <li class="active"><a ><span><img src="images/nav_RTWcase_icon.png" width="19" height="18"></span>CLAIMS</a></li>
+            <li><a ><span><img src="images/header_search_icon_w.png" width="19" height="18"></span>FAQ</a></li>
+          	
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+      </div>
+    </nav><!-- /.navbar -->
+
+    <div class="container">
+      <div class="row">
+      	<div class="col-xs-12">
+            <ul class="breadcrumb">
+                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="./case-details-list.html">Claims List</a></li>
+                 <li class="active">Claim Details</li>
+            </ul>
+         </div>
+      </div>
+     <!-- <div class="row">
+      	<div class="col-xs-12">
+            <h3 class="top-head">Claim Details </h3>
+         </div>
+      </div>-->
+      <div class="row row-offcanvas row-offcanvas-left">
+		<div class="col-xs-6 col-sm-3 col-md-2 sidebar-offcanvas padding-left-right-5">
+          <div class="list-group"  id="sidebar">
+            <a  class="list-group-item "><span class="list-icon icon-cases-details"></span><span class="left-menu-text">Claims List</span></a>
+            <a class="list-group-item active"><span class="list-icon icon-RTW-Plan"></span><span class="left-menu-text">Claim Details</span></a>
+            <a class="list-group-item "><span class="list-icon icon-Parties-Involved"></span><span class="left-menu-text">Claim Team</span></a>
+            <a class="list-group-item "><span class="list-icon icon-Forms"></span><span class="left-menu-text">Forms/Documents</span></a>
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+        <div class="col-xs-12 col-sm-9 col-md-10 padding-left-right-5" ng-controller="DomReadyCtrl" id="rightbox">
+        
+          <div class="jumbotron">
+            <div class="page-header  visible-xs" style="overflow:auto;">
+               <p class="pull-left" >
+                <button type="button" class="btn btn-primary btn-xs sidebar-toggle" data-toggle="offcanvas">
+     Show Menu
+                </button>
+              </p>
+            </div>
+          <!--main  head start-->
+          <h4 class="details-page">Auto Claim # <span><input type="text" id="claimno" disabled style ="border: none; background: transparent; border-color: transparent;"></span></h4>
+          <!--main  head end-->
+          <!--===========================================================================================================-->
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">
+               <!--page head and forms-->
+			    <div class="page-header">
+                  <h1>Overview</h1>
+                </div>
+               <form class="form-inline">
+                  <div class="form-group">
+                    <label for="claimstatus">Claim Status</label>
+                    <input type="text" class="form-control" id="claimstatus" disabled >
+                  </div>
+                  <div class="form-group">
+                    <label for="payments">Payments</label>
+                    <input type="text" class="form-control" id="payments" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label for="incidentdate">Incident Date</label>
+                    <input type="text" class="form-control" id="incidentdate" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label for="reporteddate">Reported Date</label>
+                    <input type="text" class="form-control" id="reporteddate" disabled >
+                  </div>
+		           <div class="form-group">
+                    <label for="incidenttype">Incident Type</label>
+                    <input type="text" class="form-control" id="incidenttype" disabled >
+                  </div>	
+				  
+                </form>
+                <!--end page head and forms-->
+               <!--page head and forms-->
+                <div class="page-header">
+                  <h1>Vehicle Details</h1>
+                </div>
+               <form class="form-inline">
+                  <div class="form-group">
+                    <label for="year">Year</label>
+                    <input type="text" class="form-control" id="year" disabled >
+                  </div>
+                  <div class="form-group">
+                    <label for="make">Make</label>
+                    <input type="text" class="form-control" id="make" disabled >
+                  </div>
+                  <div class="form-group">
+                    <label for="model">Model</label>
+                    <input type="text" class="form-control" id="model"  disabled >
+                  </div>
+                  <div class="form-group">
+                    <label for="vin">VIN</label>
+                    <input type="text" class="form-control" id="vin"  disabled >
+                  </div>
+                  <div class="form-group">
+                    <label for="driver">Driver</label>
+                    <input type="text" class="form-control" id="driver" disabled  >
+                  </div>
+                 
+                  <!--<button type="submit" class="btn btn-default form-button">Send invitation</button>-->
+                </form>
+				<div class="page-header">
+                  <h1>Claim Team</h1>
+                </div>
+               <form class="form-inline">
+                  <div class="form-group">
+                    <label for="contactnumber">Contact Number</label>
+                    <input type="text" class="form-control" id="contactnumber" disabled >
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" disabled >
+                  </div>
+                  
+                 
+                  <!--<button type="submit" class="btn btn-default form-button">Send invitation</button>-->
+                </form>
+                <!--end page head and forms-->
+                <!--page head and forms-->
+                <div class="page-header">
+                  <h1>Policy Details</h1>
+                </div>
+               <form class="form-inline">
+                  <div class="form-group">
+                    <label for="policynumber">Policy Number</label>
+                    <input type="text" class="form-control" id="policynumber" disabled  >
+                  </div>
+                  <div class="form-group">
+                    <label for="policytype">Policy Type</label>
+                    <input type="text" class="form-control" id="policytype" disabled  >
+                  </div>
+                  
+                  <!--<button type="submit" class="btn btn-default form-button">Send invitation</button>-->
+                </form>
+                <!--end page head and forms-->
+              </div>
+            </div>
+          </div>
+          
+          <!--===========================================================================================================-->
+          </div>
+        </div><!--/.col-xs-12.col-sm-9-->
+
+        
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>© 2017, All Rights Reserved</p>
+      </footer>
+
+    </div><!--/.container-->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="js/offcanvas.js"></script>
+	<script>
+	$( document ).ready(function() {
+    	$("#sidebar").css("height", $('#rightbox').height()-10);
+	});
+	$( window ).resize(function() {
+	  $("#sidebar").css("height", $('#rightbox').height()-10);
+	});
+	
+	</script>
+</body></html>
