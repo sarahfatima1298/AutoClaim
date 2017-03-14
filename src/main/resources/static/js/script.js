@@ -7,7 +7,7 @@ var items = {
 function login(){
 	var username= document.getElementById('user').value;
 	var password = document.getElementById('pw').value;
-	if(username === "username" && password ==="password"){
+	if(username === "john" && password ==="12345"){
 		window.location="homePage.html";
 
 	}else{
