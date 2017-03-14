@@ -1,3 +1,9 @@
+DELETE FROM autoclaim;
 
-insert into autoclaim values(20174561, 'Pending', 'DIRECT', '01/01/2017', '03/01/2017', 'accident', '2010', 'Ford', 
-'Feista', 'kdfjhsdki748564', 'John', '9824571556', 'john.smith@gmail.com', '123456', 'standard');
+INSERT INTO autoclaim(
+            id, claimstatus, contactnumber, driver, email, incidentdate, 
+            incidenttype, make, model, payments, policynumber, policytype, 
+            reporteddate, vin, year)
+    VALUES (20174561, 'Pending', '9824571556', 'John', 'john.smith@gmail.com', '01/01/2017', 
+            'accident', 'Ford', 'Feista', 'DIRECT', 'kdfjhsdki748564', 'Standard', 
+            '03/01/2017', '123456', '2010');
