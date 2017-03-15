@@ -28,6 +28,6 @@ public class LoginControllerTest {
 	public void test() throws Exception{
 		mockMvc.perform(get("/index"))
 		.andExpect(status().isOk())
-		.andExpect(view().name("login"));
+		.andExpect(view().name("login1"));
 	}
 }
