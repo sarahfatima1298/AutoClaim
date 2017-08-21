@@ -14,10 +14,10 @@ TOMCAT_ADMIN_PASSWD=$4
 cd /tmp
 
 echo "Downloading autoclaim war version $VERSION_NO"
-wget "http://ec2-35-167-7-136.us-west-2.compute.amazonaws.com:8081/nexus/content/repositories/releases/com/example/autoclaim/$VERSION_NO/autoclaim-$VERSION_NO.war"
+wget "http://ec2-52-52-237-5.us-west-1.compute.amazonaws.com:8091/nexus/content/repositories/releases/com/example/autoclaim/$VERSION_NO/autoclaim-$VERSION_NO.war"
 
 if [ -f autoclaim-$VERSION_NO.war ]; then
-        echo "Downloaded autoclaim war version $VERSION_NO"c2-35-167-7-136.us-west-2.compute.amazonaws.com:8081
+        echo "Downloaded autoclaim war version $VERSION_NO from ec2-52-52-237-5.us-west-1.compute.amazonaws.com:8091"
 
         cp autoclaim-$VERSION_NO.war autoclaim.war
         echo "Copied autoclaim-$VERSION_NO.war to autoclaim.war"
