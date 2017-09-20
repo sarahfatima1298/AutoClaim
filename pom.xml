@@ -23,18 +23,10 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		
-		<sonar.coverage.exclusions>
+		<sonar.exclusions>
 			**/entity/*.java,**/entity/*.class
-		</sonar.coverage.exclusions>
+		</sonar.exclusions>
 	</properties>
-	
-<properties>
-    <sonar.coverage.exclusions>
-       **/patternA/**/*,
-       **/patternB/**/*
-    </sonar.coverage.exclusions>
-</properties>
-	
 	
 	<dependencies>
 		<dependency>
