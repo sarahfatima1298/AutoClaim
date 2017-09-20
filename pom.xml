@@ -22,9 +22,20 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		
+		<sonar.coverage.exclusions>
+			**/entity/*.java,**/entity/*.class
+		</sonar.coverage.exclusions>
 	</properties>
 	
-
+<properties>
+    <sonar.coverage.exclusions>
+       **/patternA/**/*,
+       **/patternB/**/*
+    </sonar.coverage.exclusions>
+</properties>
+	
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
