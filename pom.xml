@@ -24,7 +24,7 @@
 		<java.version>1.8</java.version>
 		
 		<sonar.exclusions>
-			**/entity/*.java,**/entity/*.class
+			**/entity/*.class,**/controller/IntegrationDemoControllerTest.class
 		</sonar.exclusions>
 	</properties>
 	
