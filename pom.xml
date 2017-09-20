@@ -27,6 +27,9 @@
 			**/entity/*.java,**/example/Application.java,**/example/service/DemoService.java
 		</sonar.exclusions>
 		-->
+		<sonar.coverage.exclusions>
+			**/entity/*.java,**/example/Application.java,**/example/service/DemoService.java
+		</sonar.coverage.exclusions>
 	</properties>
 	
 	<dependencies>
