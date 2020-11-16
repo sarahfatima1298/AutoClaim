@@ -1,0 +1,15 @@
+{
+  "name": "AutoClaim",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmbharsh/AutoClaim.git"
+  },
+  "author": "ServiceNow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pmbharsh/AutoClaim/issues"
+  },
+  "homepage": "https://github.com/pmbharsh/AutoClaim#readme"
+}
