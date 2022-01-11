@@ -1,2 +1,2 @@
 # AutoClaim
-Sample insurance project
+Sample insurance project for AutoClaim
