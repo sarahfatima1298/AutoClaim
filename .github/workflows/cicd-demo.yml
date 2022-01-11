@@ -1,0 +1,55 @@
+name: cicd
+
+on:
+  push:
+    branches: ['feature/workflows']
+  pull_request:
+    branches: ['master']
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - name: Setup JDK 11 for Sonar Cloud
+        uses: actions/setup-java@v1
+        with:
+            java-version: 11
+      
+      - name: Maven Build
+        run: mvn clean install -DskipTests=true
+      
+      - name: Run JUnit Tests
+        run: mvn test -Dmaven.test.failure.ignore=true surefire-report:report
+        
+      - name: Sonar Cloud Analysis
+        if: success() # always() failure() success()
+        run: >
+            mvn -B verify -DskipTests sonar:sonar
+            -Dsonar.projectKey=com.example:autoclaim
+            -Dsonar.organization=harsh-pmb
+            -Dsonar.host.url=https://sonarcloud.io
+            -Dsonar.login=$SONAR_TOKEN
+        env:
+            GITHUB_TOKEN: ${{ secrets.GHP_TOKEN }}
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          
+  integrationTest:
+    needs: build
+    name: Integration Tests
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Run integration tests.
+      
+  deploy:
+    needs: integrationTest
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Run deployment.
