@@ -27,19 +27,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
             java-version: 11
-      
-      - name: notify start
-        id: notify-start
-        uses: rapdev-io/sn-devops-notification@v1.0.11
-        with:
-          devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-          devops-integration-user-pass: ${{ secrets.SN_DEVOPS_PASSWD }}
-          instance-name: ${{ secrets.SN_INSTANCE_NAME }}
-          state: 'building'
-          tool-id: ${{ secrets.SN_ORCH_TOOL_ID }}
-          context-github: ${{ toJSON(github) }}
-          commits: ${{ env.commits }}
-          upstream-task-url: 'test'
           
       - name: Maven Build
         run: mvn clean install -DskipTests=true
