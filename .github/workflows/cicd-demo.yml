@@ -58,7 +58,7 @@ jobs:
           instance-name: ${{ secrets.SN_INSTANCE_NAME }}
           tool-id: ${{ secrets.SN_ORCH_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
-          sonar-host-url: ${{ secrets.SONAR_URL }}
+          sonar-host-url: ${{ secrets.SONAR_HOST }}
           sonar-project-key: ${{ secrets.SONAR_PROJECT_KEY }}
           
           
