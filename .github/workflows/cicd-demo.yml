@@ -1,7 +1,6 @@
 name: cicd
 
 env:
-    commits: '[{ "commits": ${{ github.sha }} }]'
     repository: "${{ github.repository }}"
     run_id: "${{ github.run_number }}"
     job: "${{ github.job }}"
@@ -58,7 +57,6 @@ jobs:
           instance-name: ${{ secrets.SN_INSTANCE_NAME }}
           tool-id: ${{ secrets.SN_ORCH_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
-          commits: ${{ env.commits }}
           sonar-host-url: ${{ secrets.SONAR_URL }}
           sonar-project-key: ${{ secrets.SONAR_PROJECT_KEY }}
           
