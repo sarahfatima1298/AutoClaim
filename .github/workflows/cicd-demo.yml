@@ -39,7 +39,7 @@ jobs:
           tool-id: ${{ secrets.SN_ORCH_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           commits: ${{ env.commits }}
-          upstream-task-url: ''
+          upstream-task-url: 'test'
           
       - name: Maven Build
         run: mvn clean install -DskipTests=true
