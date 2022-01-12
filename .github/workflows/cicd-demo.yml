@@ -30,7 +30,7 @@ jobs:
       
       - name: notify start
         id: notify-start
-        uses: rapdev-io/sn-devops-notification@0.1.3
+        uses: rapdev-io/sn-devops-notification@1.0.11
         with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
           devops-integration-user-pass: ${{ secrets.SN_DEVOPS_PASSWD }}
