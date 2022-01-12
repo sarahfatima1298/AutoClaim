@@ -4,6 +4,7 @@ env:
     repository: "${{ github.repository }}"
     run_id: "${{ github.run_number }}"
     job: "${{ github.job }}"
+    commits: '[{"commitId": "${{ github.sha }}" }]'
     
 on:
   push:
@@ -27,6 +28,19 @@ jobs:
         with:
             java-version: 11
       
+      - name: notify start
+        id: notify-start
+        uses: rapdev-io/sn-devops-notification@0.1.3
+        with:
+          devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+          devops-integration-user-pass: ${{ secrets.SN_DEVOPS_PASSWD }}
+          instance-name: ${{ secrets.SN_INSTANCE_NAME }}
+          state: 'building'
+          tool-id: ${{ secrtes.SN_ORCH_TOOL_ID }}
+          context-github: ${{ toJSON(github) }}
+          commits: ${{ env.commits }}
+          upstream-task-url: ''
+          
       - name: Maven Build
         run: mvn clean install -DskipTests=true
       
