@@ -27,6 +27,9 @@ jobs:
       
       - name: Run JUnit Tests
         run: mvn test -Dmaven.test.failure.ignore=true surefire-report:report
+        
+      - name: Sonar Action
+        uses: veliavlab/sonar-github-action@master
           
   integrationTest:
     needs: build
