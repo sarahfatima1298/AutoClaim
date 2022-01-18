@@ -26,6 +26,8 @@ jobs:
           token: ${{ secrets.GHP_TOKEN }}
           path: ./.github/actions/sonar-github-action
 
+      - name: Checkout Code
+        uses: actions/checkout@v2
       
       - name: Setup JDK 11 for Sonar Cloud
         uses: actions/setup-java@v1
