@@ -5,6 +5,7 @@ env:
     run_id: "${{ github.run_number }}"
     job: "${{ github.job }}"
     commits: '[{"commitId": "${{ github.sha }}" }]'
+    workspace: "${{ github.workspace }}"
     
 on:
   push:
@@ -42,8 +43,7 @@ jobs:
         
       - name: Sonar Cloud Analysis
         run: |
-            echo ${{ github_workspace }}
-            ls ${{ github_workspace }}
+            echo ${{ env.workspace }}
                    
   integrationTest:
     needs: build
