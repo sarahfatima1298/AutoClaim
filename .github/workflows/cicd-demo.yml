@@ -42,9 +42,7 @@ jobs:
         
       - name: Sonar Cloud Analysis
         if: success() # always() failure() success()
-        run: |
-            ls /home/runner/work/AutoClaim/AutoClaim/
-            ls /home/runner/work/AutoClaim/AutoClaim/.github
+        run: ls -a /home/runner/work/AutoClaim/AutoClaim
           
   integrationTest:
     needs: build
