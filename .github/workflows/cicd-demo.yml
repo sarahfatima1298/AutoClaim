@@ -43,7 +43,7 @@ jobs:
         
       - name: Sonar Cloud Analysis
         run: |
-            echo ${{ env.workspace }}/target/surefire-reports
+            ls ${{ env.workspace }}/target/surefire-reports
                    
   integrationTest:
     needs: build
