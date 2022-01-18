@@ -38,12 +38,13 @@ jobs:
         run: pwd
       
       - name: Run JUnit Tests
-        run: ls /home/runner/work/AutoClaim
+        run: mvn test -Dmaven.test.failure.ignore=true surefire-report:report
         
       - name: Sonar Cloud Analysis
-        if: success() # always() failure() success()
-        run: ls -a /home/runner/work/AutoClaim/AutoClaim
-          
+        run: |
+            echo ${{ github_workspace }}
+            ls ${{ github_workspace }}
+                   
   integrationTest:
     needs: build
     name: Integration Tests
