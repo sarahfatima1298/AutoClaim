@@ -44,7 +44,7 @@ jobs:
         if: success() # always() failure() success()
         run: |
             ls /home/runner/work/AutoClaim/AutoClaim/
-            ls /home/runner/work/AutoClaim/AutoClaim/.github/actions
+            ls /home/runner/work/AutoClaim/AutoClaim/.github
           
   integrationTest:
     needs: build
