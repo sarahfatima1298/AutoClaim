@@ -21,7 +21,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          repository: velivalab/sonar-github-action
+          ref: v1.0.0
+          token: ${{ secrets.GHP_TOKEN }}
+          path: ./.github/actions/private-repos
+
       
       - name: Setup JDK 11 for Sonar Cloud
         uses: actions/setup-java@v1
@@ -51,7 +55,7 @@ jobs:
             
         
       - name: Sonar Action
-        uses: velivalab/sonar-github-action@master
+        uses: ./.github/actions/private-repos/sonar-github-action
         with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
           devops-integration-user-pass: ${{ secrets.SN_DEVOPS_PASSWD }}
