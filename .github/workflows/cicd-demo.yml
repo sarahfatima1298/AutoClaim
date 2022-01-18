@@ -57,7 +57,7 @@ jobs:
             
         
       - name: Sonar Action
-        uses: ./.github/actions/sonar-github-action/sonar-github-action
+        uses: ./.github/actions/sonar-github-action
         with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
           devops-integration-user-pass: ${{ secrets.SN_DEVOPS_PASSWD }}
