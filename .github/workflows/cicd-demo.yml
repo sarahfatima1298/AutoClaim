@@ -24,7 +24,7 @@ jobs:
           repository: velivalab/sonar-github-action
           ref: v1.0.0
           token: ${{ secrets.GHP_TOKEN }}
-          path: ./.github/actions/private-repos
+          path: ./.github/actions/sonar-github-action
 
       
       - name: Setup JDK 11 for Sonar Cloud
@@ -55,7 +55,7 @@ jobs:
             
         
       - name: Sonar Action
-        uses: ./.github/actions/private-repos/sonar-github-action
+        uses: ./.github/actions/sonar-github-action/sonar-github-action
         with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
           devops-integration-user-pass: ${{ secrets.SN_DEVOPS_PASSWD }}
