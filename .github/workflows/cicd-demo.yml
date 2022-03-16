@@ -21,14 +21,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-        with:
-          repository: velivalab/sonar-github-action
-          ref: v1.0.0
-          token: ${{ secrets.GHP_TOKEN }}
-          path: ./.github/actions/sonar-github-action
-
-      - name: Checkout Code
-        uses: actions/checkout@v2
       
       - name: Setup JDK 11 for Sonar Cloud
         uses: actions/setup-java@v1
@@ -36,14 +28,7 @@ jobs:
             java-version: 11
           
       - name: Maven Build
-        run: pwd
-      
-      - name: Run JUnit Tests
-        run: mvn test -Dmaven.test.failure.ignore=true surefire-report:report
-        
-      - name: Sonar Cloud Analysis
-        run: |
-            ls ${{ env.workspace }}/target/surefire-reports
+        run: mvn clean install -DskipTests=true
                    
   integrationTest:
     needs: build
