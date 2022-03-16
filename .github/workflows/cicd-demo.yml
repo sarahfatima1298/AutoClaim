@@ -1,4 +1,4 @@
-name: cicd
+name: cicd-demo
 
 env:
     repository: "${{ github.repository }}"
